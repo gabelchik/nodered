@@ -1,6 +1,6 @@
 [
     {
-        "id": "7f1c547f51387a82",
+        "id": "b252b8e1682291bf",
         "type": "tab",
         "label": "Поток 1",
         "disabled": false,
@@ -8,9 +8,9 @@
         "env": []
     },
     {
-        "id": "aaa5e0990f2b8f33",
+        "id": "2a35cbca74968065",
         "type": "http request",
-        "z": "7f1c547f51387a82",
+        "z": "b252b8e1682291bf",
         "name": "",
         "method": "GET",
         "ret": "txt",
@@ -23,8 +23,8 @@
         "authType": "basic",
         "senderr": false,
         "headers": [],
-        "x": 270,
-        "y": 320,
+        "x": 290,
+        "y": 300,
         "wires": [
             []
         ]
