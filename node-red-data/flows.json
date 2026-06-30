@@ -1,6 +1,6 @@
 [
     {
-        "id": "1aa2b6f0b756c39a",
+        "id": "5ff5dc372f3dcde1",
         "type": "tab",
         "label": "Поток 1",
         "disabled": false,
@@ -8,7 +8,7 @@
         "env": []
     },
     {
-        "id": "80c972e43fbeee67",
+        "id": "2ed6601b42e4e972",
         "type": "tab",
         "label": "Поток 2",
         "disabled": false,
@@ -16,9 +16,9 @@
         "env": []
     },
     {
-        "id": "d603871a819defaf",
+        "id": "dec68a818e8a0f90",
         "type": "inject",
-        "z": "1aa2b6f0b756c39a",
+        "z": "5ff5dc372f3dcde1",
         "name": "",
         "props": [
             {
@@ -36,34 +36,34 @@
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 120,
-        "y": 240,
+        "x": 140,
+        "y": 200,
         "wires": [
             [
-                "64cac45ebbcdb3b7"
+                "85998e43ff54b880"
             ]
         ]
     },
     {
-        "id": "64cac45ebbcdb3b7",
+        "id": "85998e43ff54b880",
         "type": "debug",
-        "z": "1aa2b6f0b756c39a",
+        "z": "5ff5dc372f3dcde1",
         "name": "debug 1",
-        "active": true,
+        "active": false,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 400,
-        "y": 240,
+        "x": 440,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "a5faf75325b4d013",
+        "id": "b4ac4cecc018c81b",
         "type": "http request",
-        "z": "80c972e43fbeee67",
+        "z": "2ed6601b42e4e972",
         "name": "",
         "method": "GET",
         "ret": "txt",
@@ -76,8 +76,8 @@
         "authType": "basic",
         "senderr": false,
         "headers": [],
-        "x": 290,
-        "y": 220,
+        "x": 230,
+        "y": 120,
         "wires": [
             []
         ]
