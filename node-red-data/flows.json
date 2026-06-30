@@ -1,0 +1,85 @@
+[
+    {
+        "id": "1aa2b6f0b756c39a",
+        "type": "tab",
+        "label": "Поток 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "80c972e43fbeee67",
+        "type": "tab",
+        "label": "Поток 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d603871a819defaf",
+        "type": "inject",
+        "z": "1aa2b6f0b756c39a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 240,
+        "wires": [
+            [
+                "64cac45ebbcdb3b7"
+            ]
+        ]
+    },
+    {
+        "id": "64cac45ebbcdb3b7",
+        "type": "debug",
+        "z": "1aa2b6f0b756c39a",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a5faf75325b4d013",
+        "type": "http request",
+        "z": "80c972e43fbeee67",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "basic",
+        "senderr": false,
+        "headers": [],
+        "x": 290,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    }
+]

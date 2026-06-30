@@ -1,0 +1,12 @@
+services:
+  nodered:
+    image: nodered/node-red:latest
+    container_name: my-nodered
+    restart: unless-stopped
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./node-red-data:/data
+    environment:
+      - TZ=Europe/Moscow
+      - NODE_RED_CREDENTIAL_SECRET=aKdwIJ5B60X1Vh0q5xNkLAFp
