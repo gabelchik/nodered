@@ -8,25 +8,176 @@
         "env": []
     },
     {
-        "id": "2a35cbca74968065",
-        "type": "http request",
+        "id": "eb36e1feb43b7cc5",
+        "type": "http in",
+        "z": "b252b8e1682291bf",
+        "name": "Приём файлов",
+        "url": "/upload",
+        "method": "post",
+        "upload": true,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 80,
+        "y": 280,
+        "wires": [
+            [
+                "da5e95d2a5e0ebf6"
+            ]
+        ]
+    },
+    {
+        "id": "da5e95d2a5e0ebf6",
+        "type": "switch",
+        "z": "b252b8e1682291bf",
+        "name": "Анализ имени файла",
+        "property": "req.files[0].originalname",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "regex",
+                "v": "^оптика_\\d{2}-\\d{2}-\\d{4}",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "regex",
+                "v": "^сплавы_\\d{2}-\\d{2}-\\d{4}",
+                "vt": "str",
+                "case": false
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 320,
+        "y": 280,
+        "wires": [
+            [
+                "b0178c766c2cc8ad"
+            ],
+            [
+                "c9789433926e0cb0"
+            ],
+            [
+                "7839839b8ce47c30"
+            ]
+        ]
+    },
+    {
+        "id": "40c6eec19fd06e1b",
+        "type": "http response",
+        "z": "b252b8e1682291bf",
+        "name": "Ответ Оптика",
+        "statusCode": "200",
+        "headers": {},
+        "x": 860,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "fc601bfe877c710d",
+        "type": "http response",
+        "z": "b252b8e1682291bf",
+        "name": "Ответ Сплавы",
+        "statusCode": "",
+        "headers": {},
+        "x": 860,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e904859d92109fd8",
+        "type": "http response",
+        "z": "b252b8e1682291bf",
+        "name": "Ответ Ошибка",
+        "statusCode": "",
+        "headers": {},
+        "x": 860,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "b0178c766c2cc8ad",
+        "type": "change",
         "z": "b252b8e1682291bf",
         "name": "",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "basic",
-        "senderr": false,
-        "headers": [],
-        "x": 290,
-        "y": 300,
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Я сервер Оптика, принял файл!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 200,
         "wires": [
-            []
+            [
+                "40c6eec19fd06e1b"
+            ]
+        ]
+    },
+    {
+        "id": "c9789433926e0cb0",
+        "type": "change",
+        "z": "b252b8e1682291bf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Я сервер Сплавы, принял файл!",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 280,
+        "wires": [
+            [
+                "fc601bfe877c710d"
+            ]
+        ]
+    },
+    {
+        "id": "7839839b8ce47c30",
+        "type": "change",
+        "z": "b252b8e1682291bf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Ошибка! Неверный формат имени файла.",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [
+                "e904859d92109fd8"
+            ]
         ]
     }
 ]
