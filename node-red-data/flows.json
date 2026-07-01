@@ -8,6 +8,20 @@
         "env": []
     },
     {
+        "id": "8c015fa6d2ad3f3b",
+        "type": "tab",
+        "label": "Поток 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0ff06d8f76816ca2",
+        "type": "websocket-listener",
+        "path": "/ws/timestamp",
+        "wholemsg": "false"
+    },
+    {
         "id": "eb36e1feb43b7cc5",
         "type": "http in",
         "z": "b252b8e1682291bf",
@@ -177,6 +191,52 @@
         "wires": [
             [
                 "e904859d92109fd8"
+            ]
+        ]
+    },
+    {
+        "id": "f7bcaae12ea831b3",
+        "type": "websocket in",
+        "z": "8c015fa6d2ad3f3b",
+        "name": "WebSocketIN",
+        "server": "0ff06d8f76816ca2",
+        "client": "",
+        "x": 190,
+        "y": 260,
+        "wires": [
+            [
+                "0c1d2e9cd1e07c03"
+            ]
+        ]
+    },
+    {
+        "id": "7ecf84456f4188ee",
+        "type": "websocket out",
+        "z": "8c015fa6d2ad3f3b",
+        "name": "WebSocketOUT",
+        "server": "0ff06d8f76816ca2",
+        "client": "",
+        "x": 600,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "0c1d2e9cd1e07c03",
+        "type": "function",
+        "z": "8c015fa6d2ad3f3b",
+        "name": "function 1",
+        "func": "msg.payload = {\n    timestamp: Date.now(),\n    formatted: new Date().toISOString()\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 260,
+        "wires": [
+            [
+                "7ecf84456f4188ee"
             ]
         ]
     }
